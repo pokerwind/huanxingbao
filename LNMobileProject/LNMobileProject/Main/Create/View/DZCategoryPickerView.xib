@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DZCategoryPickerView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="205"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyD-k2-WqU">
+                    <rect key="frame" x="12" y="8" width="30" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="取消"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHD-7e-xUD">
+                    <rect key="frame" x="333" y="8" width="30" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="完成"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请选择分类" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlL-Hb-37K">
+                    <rect key="frame" x="152" y="14" width="71.5" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dd5-gA-8T4">
+                    <rect key="frame" x="20" y="50" width="335" height="135"/>
+                </pickerView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="dd5-gA-8T4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="50" id="3v2-kQ-isJ"/>
+                <constraint firstAttribute="trailing" secondItem="dd5-gA-8T4" secondAttribute="trailing" constant="20" id="60h-9M-ref"/>
+                <constraint firstItem="nlL-Hb-37K" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="CfI-4M-FCK"/>
+                <constraint firstItem="KHD-7e-xUD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="ORW-sP-YH4"/>
+                <constraint firstItem="nlL-Hb-37K" firstAttribute="centerY" secondItem="gyD-k2-WqU" secondAttribute="centerY" id="Prk-Nw-cNd"/>
+                <constraint firstItem="dd5-gA-8T4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="YuH-X9-UAO"/>
+                <constraint firstAttribute="trailing" secondItem="KHD-7e-xUD" secondAttribute="trailing" constant="12" id="ZeI-u3-dbh"/>
+                <constraint firstAttribute="bottom" secondItem="dd5-gA-8T4" secondAttribute="bottom" constant="20" id="f5E-ls-Gaf"/>
+                <constraint firstItem="gyD-k2-WqU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="mzw-GS-cj0"/>
+                <constraint firstItem="gyD-k2-WqU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="xCr-fW-4Vx"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="cancelButton" destination="gyD-k2-WqU" id="8fE-be-9ak"/>
+                <outlet property="finishButton" destination="KHD-7e-xUD" id="gQG-Jk-YLD"/>
+                <outlet property="leftPickerView" destination="dd5-gA-8T4" id="vu6-i0-mh7"/>
+            </connections>
+            <point key="canvasLocation" x="-325" y="56"/>
+        </view>
+    </objects>
+</document>

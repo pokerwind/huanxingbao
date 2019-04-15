@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DZAboutVC">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="JSLOGO" translatesAutoresizingMaskIntoConstraints="NO" id="qX4-VM-pfJ">
+                    <rect key="frame" x="167.5" y="92" width="40" height="40"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="欢星宝平台是一款主营母婴产品的多用户商城。主要由平台自营和商家入驻组成。平台增加限时特惠、积分兑换等优惠活动，线下商城和线上商城结合，是一款优秀的母婴产品交易平台。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQn-Yp-8JE">
+                    <rect key="frame" x="23" y="182" width="329" height="67"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="杭州欢星智能科技有限公司" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJx-Jd-BND">
+                    <rect key="frame" x="114" y="616.5" width="147.5" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright @2018-2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f62-7W-d20">
+                    <rect key="frame" x="121" y="596.5" width="133.5" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="DQn-Yp-8JE" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="23" id="1qP-uF-gu8"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="iJx-Jd-BND" secondAttribute="bottom" constant="36" id="3Rl-KH-Ih0"/>
+                <constraint firstItem="iJx-Jd-BND" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="AnA-OT-W4A"/>
+                <constraint firstItem="iJx-Jd-BND" firstAttribute="top" secondItem="f62-7W-d20" secondAttribute="bottom" constant="5.5" id="RvG-ub-jlY"/>
+                <constraint firstItem="qX4-VM-pfJ" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="72" id="SWd-Hi-MlM"/>
+                <constraint firstItem="f62-7W-d20" firstAttribute="centerX" secondItem="iJx-Jd-BND" secondAttribute="centerX" id="SaJ-wl-ihx"/>
+                <constraint firstItem="DQn-Yp-8JE" firstAttribute="top" secondItem="qX4-VM-pfJ" secondAttribute="bottom" constant="50" id="htQ-Jt-H2v"/>
+                <constraint firstItem="qX4-VM-pfJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="s1G-to-RN4"/>
+                <constraint firstAttribute="trailing" secondItem="DQn-Yp-8JE" secondAttribute="trailing" constant="23" id="wgy-ot-SWL"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="-176.5" y="61.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="JSLOGO" width="40" height="40"/>
+    </resources>
+</document>

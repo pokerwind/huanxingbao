@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DZShopFileContactView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FT2-3Y-Hd7">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="联系人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvX-ib-4GP">
+                            <rect key="frame" x="14" y="12" width="40" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="六牛科技" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TuK-Y2-QwA">
+                            <rect key="frame" x="90" y="12" width="53.5" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.68235294117647061" green="0.68235294117647061" blue="0.68235294117647061" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="vvX-ib-4GP" firstAttribute="leading" secondItem="FT2-3Y-Hd7" secondAttribute="leading" constant="14" id="8xN-H9-IvR"/>
+                        <constraint firstItem="vvX-ib-4GP" firstAttribute="centerY" secondItem="FT2-3Y-Hd7" secondAttribute="centerY" id="9m3-dy-daB"/>
+                        <constraint firstItem="TuK-Y2-QwA" firstAttribute="leading" secondItem="FT2-3Y-Hd7" secondAttribute="leading" constant="90" id="GiY-MP-VoA"/>
+                        <constraint firstItem="TuK-Y2-QwA" firstAttribute="centerY" secondItem="FT2-3Y-Hd7" secondAttribute="centerY" id="SiO-hu-nIF"/>
+                        <constraint firstAttribute="height" constant="40" id="mqN-kj-exR"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="19B-47-9Nu">
+                    <rect key="frame" x="0.0" y="40.5" width="375" height="39.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="联系电话" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nRI-iG-DuO">
+                            <rect key="frame" x="14" y="11.5" width="53.5" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13333333333" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Df5-Fy-n5O">
+                            <rect key="frame" x="90" y="11.5" width="87" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.68235294120000001" green="0.68235294120000001" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="df0-uC-ZyJ">
+                            <rect key="frame" x="337" y="9" width="22" height="22"/>
+                            <state key="normal" image="order_detail_icon_tel"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="df0-uC-ZyJ" secondAttribute="trailing" constant="16" id="HiZ-Ec-KEn"/>
+                        <constraint firstItem="nRI-iG-DuO" firstAttribute="leading" secondItem="19B-47-9Nu" secondAttribute="leading" constant="14" id="dkj-nL-9Cj"/>
+                        <constraint firstItem="Df5-Fy-n5O" firstAttribute="leading" secondItem="19B-47-9Nu" secondAttribute="leading" constant="90" id="fpd-Eb-ZiJ"/>
+                        <constraint firstItem="df0-uC-ZyJ" firstAttribute="centerY" secondItem="19B-47-9Nu" secondAttribute="centerY" id="l5d-Ce-9sr"/>
+                        <constraint firstItem="Df5-Fy-n5O" firstAttribute="centerY" secondItem="19B-47-9Nu" secondAttribute="centerY" id="owz-sO-Dkm"/>
+                        <constraint firstItem="nRI-iG-DuO" firstAttribute="centerY" secondItem="19B-47-9Nu" secondAttribute="centerY" id="w2C-E8-hoK"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="FT2-3Y-Hd7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="A50-V1-I5X"/>
+                <constraint firstAttribute="trailing" secondItem="FT2-3Y-Hd7" secondAttribute="trailing" id="Gha-oc-AGF"/>
+                <constraint firstAttribute="bottom" secondItem="19B-47-9Nu" secondAttribute="bottom" id="LKT-xn-IId"/>
+                <constraint firstItem="19B-47-9Nu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="QM5-u0-w91"/>
+                <constraint firstItem="19B-47-9Nu" firstAttribute="top" secondItem="FT2-3Y-Hd7" secondAttribute="bottom" constant="0.5" id="YbJ-za-AXz"/>
+                <constraint firstAttribute="trailing" secondItem="19B-47-9Nu" secondAttribute="trailing" id="axF-22-3du"/>
+                <constraint firstItem="FT2-3Y-Hd7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="gLP-eq-gX5"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="callButton" destination="df0-uC-ZyJ" id="azz-Qm-JWz"/>
+                <outlet property="contactLabel" destination="TuK-Y2-QwA" id="Irs-o6-nwo"/>
+                <outlet property="phoneLabel" destination="Df5-Fy-n5O" id="8yt-V0-Obe"/>
+            </connections>
+            <point key="canvasLocation" x="26.5" y="52"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="order_detail_icon_tel" width="22" height="22"/>
+    </resources>
+</document>

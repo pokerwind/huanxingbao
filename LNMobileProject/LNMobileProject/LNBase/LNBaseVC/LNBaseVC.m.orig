@@ -1,0 +1,50 @@
+//
+//  LNBaseVC.m
+//  LNBaseProject
+//
+//  Created by LiuNiu-MacMini-YQ on 2016/12/23.
+//  Copyright © 2016年 LiuNiu-MacMini-YQ. All rights reserved.
+//
+
+#import "LNBaseVC.h"
+#import "AppDelegate.h"
+
+@interface LNBaseVC ()
+
+@end
+
+@implementation LNBaseVC
+
+#pragma mark - ---- 生命周期 ----
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.view.backgroundColor = BgColor;
+}
+
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIImage imageNamed:@"me_null"];
+}
+
+<<<<<<< Updated upstream
+- (BOOL)emptyDataSetShouldAllowScroll:(UIScrollView *)scrollView{
+    return YES;
+=======
+/**
+ * 显示某选项卡
+ */
+-(void)showTabWithIndex:(NSInteger)selectIndex{
+    
+    
+    //    UITabBarController* tabBarVC = (UITabBarController*)[UIApplication sharedApplication].keyWindow.rootViewController ;
+    
+    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    delegate.mainTabBarController.selectedIndex = selectIndex;
+    //tabBarVC.selectedIndex = selectIndex;
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+>>>>>>> Stashed changes
+}
+
+@end

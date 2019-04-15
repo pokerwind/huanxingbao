@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DZGoodsDetailBottomView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgi-E0-iYf">
+                    <rect key="frame" x="187.5" y="0.5" width="187.5" height="49.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="立即购买" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4I-Js-E11">
+                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="49.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ky2-hm-CPy">
+                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="49.5"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.94117647058823528" green="0.078431372549019607" blue="0.019607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="ky2-hm-CPy" firstAttribute="width" secondItem="fgi-E0-iYf" secondAttribute="width" id="5s1-46-S57"/>
+                        <constraint firstAttribute="trailing" secondItem="e4I-Js-E11" secondAttribute="trailing" id="9xW-ie-Ogz"/>
+                        <constraint firstItem="ky2-hm-CPy" firstAttribute="top" secondItem="fgi-E0-iYf" secondAttribute="top" id="RaY-WV-ELv"/>
+                        <constraint firstAttribute="bottom" secondItem="e4I-Js-E11" secondAttribute="bottom" id="Yy3-0c-C4e"/>
+                        <constraint firstItem="e4I-Js-E11" firstAttribute="leading" secondItem="fgi-E0-iYf" secondAttribute="leading" id="dwM-cT-TC3"/>
+                        <constraint firstItem="e4I-Js-E11" firstAttribute="top" secondItem="fgi-E0-iYf" secondAttribute="top" id="er8-VD-NsR"/>
+                        <constraint firstAttribute="bottom" secondItem="ky2-hm-CPy" secondAttribute="bottom" id="m09-gA-oCO"/>
+                        <constraint firstItem="ky2-hm-CPy" firstAttribute="leading" secondItem="fgi-E0-iYf" secondAttribute="leading" id="ydf-LS-GLO"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HzX-hs-cHT" userLabel="line">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="0.5"/>
+                    <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="x3T-wj-BYU"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fsM-hu-LrP">
+                    <rect key="frame" x="0.0" y="0.0" width="187.5" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="加入购物车" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HmP-ig-d2Q">
+                            <rect key="frame" x="60.5" y="17" width="66.5" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gooddetail_icon_addtocart" translatesAutoresizingMaskIntoConstraints="NO" id="Ts6-74-VVm">
+                            <rect key="frame" x="26" y="12.5" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="25" id="7YL-0k-ilA"/>
+                                <constraint firstAttribute="height" constant="25" id="dgH-li-QDv"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KbK-NP-8s4">
+                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="50"/>
+                            <connections>
+                                <action selector="cartClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="PXj-gM-eYQ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.46666666670000001" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="KbK-NP-8s4" firstAttribute="top" secondItem="fsM-hu-LrP" secondAttribute="top" id="486-RZ-XY4"/>
+                        <constraint firstItem="HmP-ig-d2Q" firstAttribute="leading" secondItem="Ts6-74-VVm" secondAttribute="trailing" constant="9.5" id="54v-qc-sjY"/>
+                        <constraint firstItem="HmP-ig-d2Q" firstAttribute="centerY" secondItem="fsM-hu-LrP" secondAttribute="centerY" id="5iK-C0-iCY"/>
+                        <constraint firstItem="KbK-NP-8s4" firstAttribute="width" secondItem="fsM-hu-LrP" secondAttribute="width" id="D6n-Hw-mpc"/>
+                        <constraint firstAttribute="bottom" secondItem="KbK-NP-8s4" secondAttribute="bottom" id="J72-vT-dKB"/>
+                        <constraint firstItem="HmP-ig-d2Q" firstAttribute="centerX" secondItem="fsM-hu-LrP" secondAttribute="centerX" id="McL-Un-9YZ"/>
+                        <constraint firstItem="Ts6-74-VVm" firstAttribute="centerY" secondItem="HmP-ig-d2Q" secondAttribute="centerY" id="Rr8-5X-aiT"/>
+                        <constraint firstItem="KbK-NP-8s4" firstAttribute="leading" secondItem="fsM-hu-LrP" secondAttribute="leading" id="biO-uA-ffG"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="HzX-hs-cHT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="2Ct-rL-8hA"/>
+                <constraint firstItem="fsM-hu-LrP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="2eH-WL-0Rz"/>
+                <constraint firstItem="fgi-E0-iYf" firstAttribute="top" secondItem="HzX-hs-cHT" secondAttribute="bottom" id="BiM-zR-Xq5"/>
+                <constraint firstItem="HzX-hs-cHT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ESb-Ii-Kl4"/>
+                <constraint firstAttribute="trailing" secondItem="fgi-E0-iYf" secondAttribute="trailing" id="Pgm-NX-Yjp"/>
+                <constraint firstAttribute="bottom" secondItem="fgi-E0-iYf" secondAttribute="bottom" id="Qv5-PJ-9WP"/>
+                <constraint firstItem="fgi-E0-iYf" firstAttribute="leading" secondItem="fsM-hu-LrP" secondAttribute="trailing" id="c49-Yk-crQ"/>
+                <constraint firstItem="fsM-hu-LrP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="mVb-js-s3m"/>
+                <constraint firstAttribute="bottom" secondItem="fsM-hu-LrP" secondAttribute="bottom" id="s36-WN-zuq"/>
+                <constraint firstItem="fsM-hu-LrP" firstAttribute="width" secondItem="fgi-E0-iYf" secondAttribute="width" id="up5-LP-r6w"/>
+                <constraint firstAttribute="trailing" secondItem="HzX-hs-cHT" secondAttribute="trailing" id="xEB-t4-XJA"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="addButton" destination="ky2-hm-CPy" id="8pN-3a-GNa"/>
+                <outlet property="addLabel" destination="e4I-Js-E11" id="Jnd-YW-3Jx"/>
+                <outlet property="addView" destination="fgi-E0-iYf" id="sEK-yy-tpu"/>
+                <outlet property="gouwucheBtn" destination="KbK-NP-8s4" id="1gv-Fm-XG7"/>
+            </connections>
+            <point key="canvasLocation" x="-395" y="77"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="gooddetail_icon_addtocart" width="25" height="25"/>
+    </resources>
+</document>

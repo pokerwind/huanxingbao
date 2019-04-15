@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DZHomeMidMView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="214"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baokuantuijian" translatesAutoresizingMaskIntoConstraints="NO" id="Bwq-9Y-Ndu">
+                    <rect key="frame" x="16" y="0.0" width="66" height="13"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_ad1" translatesAutoresizingMaskIntoConstraints="NO" id="4Ue-rv-T5a">
+                    <rect key="frame" x="0.0" y="28" width="375" height="166"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="4Ue-rv-T5a" secondAttribute="height" multiplier="1:0.442" id="HMm-ml-3D4"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B3J-OB-32V">
+                    <rect key="frame" x="0.0" y="28" width="375" height="166"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="B3J-OB-32V" secondAttribute="height" multiplier="1:0.442" id="KXD-vy-GVG"/>
+                    </constraints>
+                    <connections>
+                        <action selector="btnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="CNb-cd-qGR"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Bwq-9Y-Ndu" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="0AV-nh-tva"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="4Ue-rv-T5a" secondAttribute="trailing" id="2nM-Fk-UOt"/>
+                <constraint firstItem="B3J-OB-32V" firstAttribute="top" secondItem="Bwq-9Y-Ndu" secondAttribute="bottom" constant="15" id="8bc-lX-ZWi"/>
+                <constraint firstItem="B3J-OB-32V" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="E2a-8D-kss"/>
+                <constraint firstItem="B3J-OB-32V" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Kjk-zr-deT"/>
+                <constraint firstItem="Bwq-9Y-Ndu" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="O7E-Eq-0VQ"/>
+                <constraint firstItem="4Ue-rv-T5a" firstAttribute="top" secondItem="Bwq-9Y-Ndu" secondAttribute="bottom" constant="15" id="TgS-MV-vdA"/>
+                <constraint firstItem="4Ue-rv-T5a" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="gci-QK-Sf2"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="adImageV" destination="4Ue-rv-T5a" id="Fy1-kX-5NF"/>
+            </connections>
+            <point key="canvasLocation" x="173.59999999999999" y="-58.47076461769116"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="baokuantuijian" width="66" height="13"/>
+        <image name="home_ad1" width="750" height="280"/>
+    </resources>
+</document>

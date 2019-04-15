@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DZWithdrawHeader">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Zm-2c-OEM">
+                    <rect key="frame" x="0.0" y="10" width="375" height="40"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提现金额" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sn2-cr-RAM">
+                            <rect key="frame" x="15" y="12" width="57.5" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入提现金额" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zZ7-1N-Y1w">
+                            <rect key="frame" x="93" y="0.0" width="267" height="40"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="zZ7-1N-Y1w" secondAttribute="bottom" id="WHR-pd-rbc"/>
+                        <constraint firstAttribute="trailing" secondItem="zZ7-1N-Y1w" secondAttribute="trailing" constant="15" id="YPo-ig-woq"/>
+                        <constraint firstItem="sn2-cr-RAM" firstAttribute="centerY" secondItem="0Zm-2c-OEM" secondAttribute="centerY" id="gvD-7M-0oJ"/>
+                        <constraint firstItem="zZ7-1N-Y1w" firstAttribute="leading" secondItem="sn2-cr-RAM" secondAttribute="trailing" constant="20.5" id="iN5-ly-JhG"/>
+                        <constraint firstItem="sn2-cr-RAM" firstAttribute="leading" secondItem="0Zm-2c-OEM" secondAttribute="leading" constant="15" id="jmq-U2-ch3"/>
+                        <constraint firstItem="zZ7-1N-Y1w" firstAttribute="top" secondItem="0Zm-2c-OEM" secondAttribute="top" id="sXQ-Ny-0G3"/>
+                        <constraint firstAttribute="height" constant="40" id="wbH-cp-LmY"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请选择提现账户" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5K-uF-5Dk">
+                    <rect key="frame" x="15" y="58.5" width="86" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="b5K-uF-5Dk" secondAttribute="bottom" constant="2" id="ChA-MD-zqB"/>
+                <constraint firstItem="b5K-uF-5Dk" firstAttribute="leading" secondItem="sn2-cr-RAM" secondAttribute="leading" id="PZo-Ya-N71"/>
+                <constraint firstAttribute="trailing" secondItem="0Zm-2c-OEM" secondAttribute="trailing" id="fCy-qs-GGJ"/>
+                <constraint firstItem="0Zm-2c-OEM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="kcd-dG-IQT"/>
+                <constraint firstItem="0Zm-2c-OEM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="uFe-iU-3cb"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="moneyTextField" destination="zZ7-1N-Y1w" id="WWM-MO-PVz"/>
+            </connections>
+            <point key="canvasLocation" x="-611" y="-105"/>
+        </view>
+    </objects>
+</document>

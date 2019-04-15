@@ -1,0 +1,358 @@
+//
+//  DZCreateGoodVC.m
+//  LNMobileProject
+//
+//  Created by 杨允恩 on 2017/8/28.
+//  Copyright © 2017年 Liuniu. All rights reserved.
+//
+
+#import "DZCreateGoodVC.h"
+
+#import "DZCreateGoodAddCell.h"
+#import "DZColorPickerView.h"
+#import "DZSizePickerView.h"
+<<<<<<< HEAD
+#import "CommodityAttributeController.h"
+=======
+#import "DZCategoryPickerView.h"
+
+#import "DZGetCategoryListModel.h"
+
+>>>>>>> 7e89a6821201c8a351ed446795ac827d37fb0817
+@interface DZCreateGoodVC ()<UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate,UIActionSheetDelegate,UINavigationControllerDelegate, DZColorPickerViewDelegate, DZSizePickerViewDelegate>
+
+@property (strong, nonatomic) UIBarButtonItem *leftItem;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) NSMutableArray *photoArray;
+@property (strong, nonatomic) UIActionSheet *actionSheet;
+@property (nonatomic) NSInteger coverIndex;
+
+@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
+@property (weak, nonatomic) IBOutlet UITextView *descTextView;
+@property (weak, nonatomic) IBOutlet UITextField *handPriceTextField;
+@property (weak, nonatomic) IBOutlet UITextField *expressPriceTextField;
+@property (weak, nonatomic) IBOutlet UIButton *colorButton;
+@property (weak, nonatomic) IBOutlet UIButton *sizeButton;
+@property (weak, nonatomic) IBOutlet UIButton *categoryButton;
+@property (weak, nonatomic) IBOutlet UIButton *propertyButton;
+@property (weak, nonatomic) IBOutlet UITextField *weightTextField;
+
+@property (strong, nonatomic) UIView *maskView;
+@property (strong, nonatomic) DZColorPickerView *colorPickerView;
+@property (strong, nonatomic) DZSizePickerView *sizePickerView;
+@property (strong, nonatomic) DZCategoryPickerView *categoryPickerView;
+
+@property (strong, nonatomic) NSArray *categoryArray;
+
+@end
+
+@implementation DZCreateGoodVC
+static NSString *AddCellIdentifier = @"DZCreateGoodAddCell";
+
+#pragma mark - ---- 生命周期 ----
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"上传新产品";
+    self.navigationItem.leftBarButtonItem = self.leftItem;
+    
+    [self.collectionView registerNib:[UINib nibWithNibName:@"DZCreateGoodAddCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:AddCellIdentifier];
+    
+    [self getData];
+}
+
+#pragma mark - ---- 布局代码 ----
+
+#pragma mark - ---- Action Events 和 response手势 ----
+- (void)leftItemAction{
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)colorButtonAction {
+    [self showColorPickerView];
+}
+
+- (IBAction)sizeButtonAction {
+    [self showSizePickerView];
+}
+
+- (IBAction)categoryButtonAction {
+    if (!self.categoryArray || !self.categoryArray.count) {
+        [SVProgressHUD showErrorWithStatus:@"获取分类列表失败"];
+        return;
+    }
+    
+    self.categoryPickerView.dataArray = self.categoryArray;
+    [self showCategoryPickerView];
+}
+
+- (IBAction)propertyButtonAction {
+    NSLog(@"商品属性");
+    CommodityAttributeController *attri = [[CommodityAttributeController alloc] init];
+    attri.cat_id = @"";
+    [self.navigationController pushViewController:attri animated:YES];
+}
+
+- (IBAction)submitButtonAction {
+    
+}
+
+- (IBAction)resetButtonAction {
+    
+}
+
+- (void)categoryPickerCancelButtonAction{
+    [self hideCategoryPickerView];
+}
+
+- (void)categoryPickerFinishButtonAction{
+    [self hideCategoryPickerView];
+    DZCategoryListModel *selectedModel = self.categoryPickerView.selectedModel;
+    [self.categoryButton setTitle:selectedModel.cat_name_mobile forState:UIControlStateNormal];
+}
+
+- (void)showColorPickerView{
+    [[UIApplication sharedApplication].delegate.window addSubview:self.maskView];
+    [[UIApplication sharedApplication].delegate.window addSubview:self.colorPickerView];
+    [self.maskView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideColorPickerView)]];
+    [UIView animateWithDuration:.3 animations:^{
+        self.colorPickerView.frame = CGRectMake(0, SCREEN_HEIGHT - self.colorPickerView.height, self.colorPickerView.width, self.colorPickerView.height);
+    }];
+}
+
+- (void)hideColorPickerView{
+    [UIView animateWithDuration:.2 animations:^{
+        self.colorPickerView.frame = CGRectMake(0, SCREEN_HEIGHT, self.colorPickerView.width, self.colorPickerView.height);
+    }completion:^(BOOL finished) {
+        [self.colorPickerView removeFromSuperview];
+        [self.maskView removeFromSuperview];
+    }];
+}
+
+- (void)showSizePickerView{
+    [[UIApplication sharedApplication].delegate.window addSubview:self.maskView];
+    [[UIApplication sharedApplication].delegate.window addSubview:self.sizePickerView];
+    [self.maskView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideSizePickerView)]];
+    [UIView animateWithDuration:.3 animations:^{
+        self.sizePickerView.frame = CGRectMake(0, SCREEN_HEIGHT - self.sizePickerView.height, self.sizePickerView.width, self.sizePickerView.height);
+    }];
+}
+
+- (void)hideSizePickerView{
+    [UIView animateWithDuration:.2 animations:^{
+        self.sizePickerView.frame = CGRectMake(0, SCREEN_HEIGHT, self.sizePickerView.width, self.sizePickerView.height);
+    }completion:^(BOOL finished) {
+        [self.sizePickerView removeFromSuperview];
+        [self.maskView removeFromSuperview];
+    }];
+}
+
+- (void)showCategoryPickerView{
+    [[UIApplication sharedApplication].delegate.window addSubview:self.maskView];
+    [[UIApplication sharedApplication].delegate.window addSubview:self.categoryPickerView];
+    [self.maskView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideCategoryPickerView)]];
+    [UIView animateWithDuration:.3 animations:^{
+        self.categoryPickerView.frame = CGRectMake(0, SCREEN_HEIGHT - self.categoryPickerView.height, self.categoryPickerView.width, self.categoryPickerView.height);
+    }];
+}
+
+- (void)hideCategoryPickerView{
+    [UIView animateWithDuration:.2 animations:^{
+        self.categoryPickerView.frame = CGRectMake(0, SCREEN_HEIGHT, self.categoryPickerView.width, self.categoryPickerView.height);
+    }completion:^(BOOL finished) {
+        [self.categoryPickerView removeFromSuperview];
+        [self.maskView removeFromSuperview];
+    }];
+}
+
+#pragma mark - ---- 代理相关 ----
+#pragma mark - ---- DZSizePickerViewDelegate ----
+- (void)didSelectedSizes:(NSArray *)sizes{
+    [self hideSizePickerView];
+}
+
+#pragma mark - ---- DZColorPickerViewDelegate ----
+- (void)didSelectedColors:(NSArray *)colors{
+    [self hideColorPickerView];
+}
+
+#pragma mark - ---- UICollectionViewDelegate ----
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.item == self.photoArray.count) {
+        [self callActionSheetFunc];
+    }else{
+        self.coverIndex = indexPath.item;
+        [self.collectionView reloadData];
+    }
+}
+#pragma mark - ---- UICollectionViewDataSource ----
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return self.photoArray.count + 1;
+}
+
+- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    DZCreateGoodAddCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:AddCellIdentifier forIndexPath:indexPath];
+    
+    if (indexPath.item < self.photoArray.count) {
+        UIImage *img = self.photoArray[indexPath.item];
+        cell.coverImageView.image = img;
+        cell.deleteButton.hidden = NO;
+        cell.deleteButton.tag = indexPath.item;
+        [cell.deleteButton addTarget:self action:@selector(cellDeleteButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        
+        if (indexPath.item == self.coverIndex) {
+            cell.coverTagImageView.hidden = NO;
+        }else{
+            cell.coverTagImageView.hidden = YES;
+        }
+    }else{
+        cell.coverImageView.image = [UIImage imageNamed:@"btn_add_realimg"];
+        cell.deleteButton.hidden = YES;
+        cell.coverTagImageView.hidden = YES;
+    }
+    
+    return cell;
+}
+
+- (void)cellDeleteButtonAction:(UIButton *)btn{
+    [self.photoArray removeObjectAtIndex:btn.tag];
+    if (self.coverIndex == btn.tag) {
+        self.coverIndex = 0;
+    }
+    [self.collectionView reloadData];
+}
+
+#pragma mark - ---- 私有方法 ----
+- (void)callActionSheetFunc{
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+        self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"选择图像"
+                                                       delegate:self
+                                              cancelButtonTitle:@"取消"
+                                         destructiveButtonTitle:nil
+                                              otherButtonTitles:@"拍照", @"从相册选择", nil];
+    }else{
+        self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"选择图像"
+                                                       delegate:self
+                                              cancelButtonTitle:@"取消"
+                                         destructiveButtonTitle:nil
+                                              otherButtonTitles:@"从相册选择", nil];
+    }
+    
+    self.actionSheet.tag = 1000;
+    [self.actionSheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (actionSheet.tag == 1000) {
+        NSUInteger sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        // 判断是否支持相机
+        if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            switch (buttonIndex) {
+                case 0:
+                    //来源:相机
+                    sourceType = UIImagePickerControllerSourceTypeCamera;
+                    break;
+                case 1:
+                    //来源:相册
+                    sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                    break;
+                case 2:
+                    
+                    return;
+            }
+        }
+        else {
+            if (buttonIndex == 1) {
+                return;
+            } else {
+                sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+            }
+        }
+        
+        // 跳转到相机或相册页面
+        UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+        imagePickerController.delegate = self;
+        imagePickerController.allowsEditing = YES;
+        imagePickerController.sourceType = sourceType;
+        
+        [self presentViewController:imagePickerController animated:YES completion:^{
+            
+        }];
+    }
+}
+
+#pragma mark - ImagePickerController Delegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [picker dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+    
+    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];// [info objectForKey:UIImagePickerControllerOriginalImage];
+    [self.photoArray addObject:image];
+    [self.collectionView reloadData];
+}
+
+- (void)getData{
+    LNetWorkAPI *api = [[LNetWorkAPI alloc] initWithUrl:@"/Api/GoodsCategoryApi/getCategoryList" parameters:nil];
+    [api startWithBlockSuccess:^(__kindof LCBaseRequest *request) {
+        DZGetCategoryListModel *model = [DZGetCategoryListModel objectWithKeyValues:request.responseJSONObject];
+        if (model.isSuccess) {
+            self.categoryArray = model.data;
+        }
+    } failure:nil];
+}
+
+#pragma mark - --- getters 和 setters ----
+- (UIBarButtonItem *)leftItem{
+    if (!_leftItem) {
+        _leftItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(leftItemAction)];
+        _leftItem.tintColor = HEXCOLOR(0xff7722);
+        [_leftItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:14],NSFontAttributeName, nil] forState:UIControlStateNormal];
+    }
+    return _leftItem;
+}
+
+- (NSMutableArray *)photoArray{
+    if (!_photoArray) {
+        _photoArray = [NSMutableArray array];
+    }
+    return _photoArray;
+}
+
+- (UIView *)maskView{
+    if (!_maskView) {
+        _maskView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+        _maskView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:.6];
+    }
+    return _maskView;
+}
+
+- (DZColorPickerView *)colorPickerView{
+    if (!_colorPickerView) {
+        _colorPickerView = [DZColorPickerView viewFormNib];
+        _colorPickerView.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, 300);
+        _colorPickerView.delegate = self;
+    }
+    return _colorPickerView;
+}
+
+- (DZSizePickerView *)sizePickerView{
+    if (!_sizePickerView) {
+        _sizePickerView = [DZSizePickerView viewFormNib];
+        _sizePickerView.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, 300);
+        _sizePickerView.delegate = self;
+    }
+    return _sizePickerView;
+}
+
+- (DZCategoryPickerView *)categoryPickerView{
+    if (!_categoryPickerView) {
+        _categoryPickerView = [DZCategoryPickerView viewFormNib];
+        _categoryPickerView.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, 200);
+        [_categoryPickerView.cancelButton addTarget:self action:@selector(categoryPickerCancelButtonAction) forControlEvents:UIControlEventTouchUpInside];
+        [_categoryPickerView.finishButton addTarget:self action:@selector(categoryPickerFinishButtonAction) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _categoryPickerView;
+}
+
+@end

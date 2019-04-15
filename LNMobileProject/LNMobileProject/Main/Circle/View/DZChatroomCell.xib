@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="DZChatroomCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="64.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_grey" translatesAutoresizingMaskIntoConstraints="NO" id="ZMU-td-tWX">
+                        <rect key="frame" x="12" y="5" width="55" height="55"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="ZMU-td-tWX" secondAttribute="height" multiplier="1:1" id="NxH-P1-vFd"/>
+                            <constraint firstAttribute="width" constant="55" id="cS7-6I-6Hw"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="聊天室1" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vw-wA-jqb">
+                        <rect key="frame" x="82" y="8" width="50" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="32人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PsM-ud-2AF">
+                        <rect key="frame" x="144" y="9" width="28" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3分钟前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8qE-0d-fJ7">
+                        <rect key="frame" x="265" y="9" width="45" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="填写聊天室简介" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCe-Nd-DXV">
+                        <rect key="frame" x="82" y="35" width="230" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ZMU-td-tWX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="4" id="54f-PU-Num"/>
+                    <constraint firstAttribute="trailing" secondItem="GCe-Nd-DXV" secondAttribute="trailing" constant="8" id="8VM-rC-vA3"/>
+                    <constraint firstItem="PsM-ud-2AF" firstAttribute="leading" secondItem="1vw-wA-jqb" secondAttribute="trailing" constant="12" id="KT3-5x-eOi"/>
+                    <constraint firstItem="1vw-wA-jqb" firstAttribute="leading" secondItem="ZMU-td-tWX" secondAttribute="trailing" constant="15" id="UuN-S2-qmB"/>
+                    <constraint firstItem="GCe-Nd-DXV" firstAttribute="top" secondItem="1vw-wA-jqb" secondAttribute="bottom" constant="10" id="XsG-Fd-Gij"/>
+                    <constraint firstItem="PsM-ud-2AF" firstAttribute="centerY" secondItem="1vw-wA-jqb" secondAttribute="centerY" id="acs-RN-dgr"/>
+                    <constraint firstItem="8qE-0d-fJ7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PsM-ud-2AF" secondAttribute="trailing" constant="8" id="d0I-ek-WYK"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="8qE-0d-fJ7" secondAttribute="trailing" constant="2" id="ewi-AB-w93"/>
+                    <constraint firstItem="1vw-wA-jqb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="jO8-72-CQG"/>
+                    <constraint firstItem="8qE-0d-fJ7" firstAttribute="centerY" secondItem="PsM-ud-2AF" secondAttribute="centerY" id="jzO-LK-ZM0"/>
+                    <constraint firstItem="ZMU-td-tWX" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ngm-G6-3bq"/>
+                    <constraint firstItem="GCe-Nd-DXV" firstAttribute="leading" secondItem="1vw-wA-jqb" secondAttribute="leading" id="nvF-kP-Bvf"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="avatarImageView" destination="ZMU-td-tWX" id="Ixz-Eo-jwT"/>
+                <outlet property="introLabel" destination="GCe-Nd-DXV" id="vFZ-FT-BfZ"/>
+                <outlet property="nameLabel" destination="1vw-wA-jqb" id="ktF-CO-7cf"/>
+                <outlet property="numLabel" destination="PsM-ud-2AF" id="o9v-X5-fWq"/>
+                <outlet property="timeLabel" destination="8qE-0d-fJ7" id="8j8-SS-ghe"/>
+            </connections>
+            <point key="canvasLocation" x="25" y="51.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="avatar_grey" width="512" height="512"/>
+    </resources>
+</document>

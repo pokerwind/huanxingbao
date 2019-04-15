@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DZAddAlertView">
+            <rect key="frame" x="0.0" y="0.0" width="275" height="156"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提醒" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yAq-By-pUW">
+                    <rect key="frame" x="121.5" y="7" width="31" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已加入进货车" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOZ-SM-4jh">
+                    <rect key="frame" x="97.5" y="70" width="80" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BGZ-U3-oUa">
+                    <rect key="frame" x="15" y="117" width="110" height="30"/>
+                    <color key="backgroundColor" red="0.96854275465011597" green="0.96868163347244263" blue="0.96851247549057007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="110" id="2cg-h7-qdr"/>
+                        <constraint firstAttribute="height" constant="30" id="rwZ-jH-Kxm"/>
+                    </constraints>
+                    <state key="normal" title="继续购物">
+                        <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="peB-lG-5oK">
+                    <rect key="frame" x="150" y="117" width="110" height="30"/>
+                    <color key="backgroundColor" red="1" green="0.46666666670000001" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="110" id="CdC-O0-boP"/>
+                        <constraint firstAttribute="height" constant="30" id="yDP-pH-LVi"/>
+                    </constraints>
+                    <state key="normal" title="立即结算">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="yAq-By-pUW" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="CDQ-00-pef"/>
+                <constraint firstItem="yAq-By-pUW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="7" id="E0R-Cc-C5b"/>
+                <constraint firstAttribute="trailing" secondItem="peB-lG-5oK" secondAttribute="trailing" constant="15" id="EWe-NA-T6h"/>
+                <constraint firstAttribute="bottom" secondItem="BGZ-U3-oUa" secondAttribute="bottom" constant="9" id="Ls8-ro-15p"/>
+                <constraint firstItem="dOZ-SM-4jh" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Q19-ya-WhJ"/>
+                <constraint firstAttribute="bottom" secondItem="peB-lG-5oK" secondAttribute="bottom" constant="9" id="UMJ-W1-ks6"/>
+                <constraint firstItem="BGZ-U3-oUa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="ljT-FK-0hV"/>
+                <constraint firstItem="dOZ-SM-4jh" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="zBI-dW-oCS"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="checkoutButton" destination="peB-lG-5oK" id="9a2-dP-Qbo"/>
+                <outlet property="continueButton" destination="BGZ-U3-oUa" id="hbl-GQ-OBA"/>
+            </connections>
+            <point key="canvasLocation" x="-143" y="4"/>
+        </view>
+    </objects>
+</document>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DZGoodsDetailTitleView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Il8-Tm-yDe">
+                    <rect key="frame" x="16" y="23" width="285" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cHP-XV-RrA">
+                    <rect key="frame" x="309" y="11.5" width="50" height="22"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gooddetail_icon_unlike" translatesAutoresizingMaskIntoConstraints="NO" id="upP-ew-AE8">
+                            <rect key="frame" x="6" y="4.5" width="14" height="13"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="14" id="1lA-Nb-hYG"/>
+                                <constraint firstAttribute="width" secondItem="upP-ew-AE8" secondAttribute="height" multiplier="14:13" id="tvI-91-w9u"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Def-Js-xKB">
+                            <rect key="frame" x="23" y="3" width="24" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="Def-Js-xKB" firstAttribute="leading" secondItem="upP-ew-AE8" secondAttribute="trailing" constant="3" id="D3j-sH-wUo"/>
+                        <constraint firstItem="upP-ew-AE8" firstAttribute="centerY" secondItem="cHP-XV-RrA" secondAttribute="centerY" id="GNa-XU-IhK"/>
+                        <constraint firstItem="upP-ew-AE8" firstAttribute="leading" secondItem="cHP-XV-RrA" secondAttribute="leading" constant="6" id="LEv-6Y-DHP"/>
+                        <constraint firstItem="Def-Js-xKB" firstAttribute="centerY" secondItem="cHP-XV-RrA" secondAttribute="centerY" id="aYC-JG-n3g"/>
+                        <constraint firstAttribute="height" constant="22" id="ccK-hi-bjp"/>
+                        <constraint firstAttribute="trailing" secondItem="Def-Js-xKB" secondAttribute="trailing" constant="3" id="qIV-tv-HAy"/>
+                        <constraint firstAttribute="width" constant="50" id="qtF-vn-ZiA"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="cHP-XV-RrA" secondAttribute="trailing" constant="16" id="Jtr-oH-1e8"/>
+                <constraint firstItem="cHP-XV-RrA" firstAttribute="leading" secondItem="Il8-Tm-yDe" secondAttribute="trailing" constant="8" id="SVE-0r-U3W"/>
+                <constraint firstItem="cHP-XV-RrA" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="YL6-rb-Iqq"/>
+                <constraint firstItem="Il8-Tm-yDe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="dz5-ZX-TrM"/>
+                <constraint firstItem="Il8-Tm-yDe" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="tvr-tg-IAQ"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="collectNum" destination="Def-Js-xKB" id="kFj-mU-q8I"/>
+                <outlet property="favoriteView" destination="cHP-XV-RrA" id="Rzn-iJ-cdE"/>
+                <outlet property="heartImageView" destination="upP-ew-AE8" id="fRN-hb-Tal"/>
+                <outlet property="titleLabel" destination="Il8-Tm-yDe" id="Xki-sS-MC8"/>
+            </connections>
+            <point key="canvasLocation" x="-242" y="47"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="gooddetail_icon_unlike" width="16" height="16"/>
+    </resources>
+</document>

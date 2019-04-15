@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DZShopCollectionRightView">
+            <rect key="frame" x="0.0" y="0.0" width="27" height="21"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my_icon_evaluation" translatesAutoresizingMaskIntoConstraints="NO" id="U4E-2P-WFR">
+                    <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="r4E-CF-DzG"/>
+                        <constraint firstAttribute="width" constant="24" id="yxm-cr-q12"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 99 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LpX-qR-dKJ">
+                    <rect key="frame" x="10" y="2" width="17.5" height="13"/>
+                    <color key="backgroundColor" red="1" green="0.46666666666666667" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="13" id="y1T-3Z-LYj"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <real key="value" value="6.5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="U4E-2P-WFR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="L10-lu-Sa2"/>
+                <constraint firstItem="U4E-2P-WFR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="YvC-XB-y3x"/>
+                <constraint firstItem="LpX-qR-dKJ" firstAttribute="centerY" secondItem="U4E-2P-WFR" secondAttribute="centerY" multiplier="2:3" id="cQu-3K-OGA"/>
+                <constraint firstItem="LpX-qR-dKJ" firstAttribute="centerX" secondItem="U4E-2P-WFR" secondAttribute="centerX" multiplier="3:2" id="uT9-iY-VV4"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="countLabel" destination="LpX-qR-dKJ" id="ZOK-6R-5H3"/>
+            </connections>
+            <point key="canvasLocation" x="-115.5" y="-212.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="my_icon_evaluation" width="22" height="22"/>
+    </resources>
+</document>

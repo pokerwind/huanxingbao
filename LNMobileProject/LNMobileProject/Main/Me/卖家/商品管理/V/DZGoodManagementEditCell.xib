@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DZGoodManagementEditCell" rowHeight="85" id="KGk-i7-Jjw" customClass="DZGoodManagementEditCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tfX-X4-Qgv">
+                        <rect key="frame" x="40" y="7" width="55.5" height="64.5"/>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="tfX-X4-Qgv" secondAttribute="height" multiplier="55:64" id="bda-h0-Z4K"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="爆款推荐 中长款弹力棉女装性感包臀吊带" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhv-JH-UlH">
+                        <rect key="frame" x="103" y="7" width="260" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥11.50 - ￥12.50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTg-iu-xSc">
+                        <rect key="frame" x="103" y="31.5" width="104" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="1" green="0.46666666670000001" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0次浏览   销量：0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQl-hF-oIr">
+                        <rect key="frame" x="103" y="56" width="107" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5eR-o9-UbH">
+                        <rect key="frame" x="0.0" y="78" width="375" height="1"/>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="4wH-aD-exR"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cart_icon_checkbox_n" translatesAutoresizingMaskIntoConstraints="NO" id="DdW-mN-64J">
+                        <rect key="frame" x="8" y="30" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="0dz-ff-xXS"/>
+                            <constraint firstAttribute="height" constant="20" id="Oa9-VC-Mcd"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="5eR-o9-UbH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="3q2-6H-itA"/>
+                    <constraint firstItem="5eR-o9-UbH" firstAttribute="top" secondItem="tfX-X4-Qgv" secondAttribute="bottom" constant="7" id="5R5-pE-nAP"/>
+                    <constraint firstItem="DdW-mN-64J" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="90R-NL-G5o"/>
+                    <constraint firstItem="uQl-hF-oIr" firstAttribute="bottom" secondItem="tfX-X4-Qgv" secondAttribute="bottom" id="DCh-Cu-Aua"/>
+                    <constraint firstItem="tfX-X4-Qgv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="40" id="EZN-5z-WEf"/>
+                    <constraint firstItem="DdW-mN-64J" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="KTh-Db-bTk"/>
+                    <constraint firstAttribute="trailing" secondItem="Jhv-JH-UlH" secondAttribute="trailing" constant="12" id="RTB-2X-Olp"/>
+                    <constraint firstItem="fTg-iu-xSc" firstAttribute="leading" secondItem="Jhv-JH-UlH" secondAttribute="leading" id="Rtt-Dd-Bki"/>
+                    <constraint firstAttribute="trailing" secondItem="5eR-o9-UbH" secondAttribute="trailing" id="SU1-h8-GjS"/>
+                    <constraint firstItem="Jhv-JH-UlH" firstAttribute="top" secondItem="tfX-X4-Qgv" secondAttribute="top" id="VoJ-Qk-Jzq"/>
+                    <constraint firstItem="Jhv-JH-UlH" firstAttribute="leading" secondItem="tfX-X4-Qgv" secondAttribute="trailing" constant="7.5" id="gZg-99-ZdH"/>
+                    <constraint firstItem="tfX-X4-Qgv" firstAttribute="width" secondItem="tfX-X4-Qgv" secondAttribute="height" multiplier="55:64" id="hhc-no-3LO"/>
+                    <constraint firstItem="tfX-X4-Qgv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="iNu-IQ-5Lz"/>
+                    <constraint firstItem="fTg-iu-xSc" firstAttribute="centerY" secondItem="tfX-X4-Qgv" secondAttribute="centerY" id="kLn-19-9zi"/>
+                    <constraint firstAttribute="bottom" secondItem="5eR-o9-UbH" secondAttribute="bottom" id="sBe-dH-IHi"/>
+                    <constraint firstItem="uQl-hF-oIr" firstAttribute="leading" secondItem="fTg-iu-xSc" secondAttribute="leading" id="y7z-iP-U4J"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="countLabel" destination="uQl-hF-oIr" id="bHJ-ew-ts8"/>
+                <outlet property="coverImageView" destination="tfX-X4-Qgv" id="03S-uY-Kjl"/>
+                <outlet property="nameLabel" destination="Jhv-JH-UlH" id="RqI-62-VTP"/>
+                <outlet property="priceLabel" destination="fTg-iu-xSc" id="uBS-LU-3DG"/>
+                <outlet property="selectionImageView" destination="DdW-mN-64J" id="60i-ga-fXC"/>
+            </connections>
+            <point key="canvasLocation" x="-443" y="-99"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="cart_icon_checkbox_n" width="22" height="22"/>
+    </resources>
+</document>

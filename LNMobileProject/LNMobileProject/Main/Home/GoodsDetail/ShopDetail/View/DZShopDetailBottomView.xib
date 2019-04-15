@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DZShopDetailBottomView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u8g-7R-VNT" userLabel="line">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="0.5"/>
+                    <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="2E9-Bw-hrO"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wUd-cg-dll">
+                    <rect key="frame" x="0.0" y="0.5" width="50" height="49.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="oxK-D9-19v"/>
+                    </constraints>
+                    <state key="normal" image="gooddetail_icon_fenlei"/>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rJH-RR-lLW" userLabel="line">
+                    <rect key="frame" x="50" y="0.5" width="0.5" height="49.5"/>
+                    <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="0.5" id="Q88-wZ-0ek"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O6Y-Qu-wck">
+                    <rect key="frame" x="50.5" y="0.5" width="108" height="49"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="店铺档案">
+                        <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RJ1-Ll-p7R" userLabel="line">
+                    <rect key="frame" x="158.5" y="0.0" width="0.5" height="49.5"/>
+                    <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="0.5" id="j2d-RW-t6f"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76Q-rn-6d2">
+                    <rect key="frame" x="159" y="0.0" width="107.5" height="49.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="私聊卖家">
+                        <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tSe-qH-nkc" userLabel="line">
+                    <rect key="frame" x="266.5" y="0.0" width="0.5" height="49.5"/>
+                    <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="0.5" id="QDq-wh-0hk"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJV-NZ-BJB">
+                    <rect key="frame" x="267" y="0.0" width="108" height="49.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="联系电话">
+                        <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="rJH-RR-lLW" secondAttribute="bottom" id="0y2-g9-Fht"/>
+                <constraint firstItem="u8g-7R-VNT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7B6-aa-1IV"/>
+                <constraint firstItem="VJV-NZ-BJB" firstAttribute="leading" secondItem="tSe-qH-nkc" secondAttribute="trailing" id="8Fx-Jq-AZG"/>
+                <constraint firstItem="O6Y-Qu-wck" firstAttribute="width" secondItem="76Q-rn-6d2" secondAttribute="width" id="AbR-sf-KE3"/>
+                <constraint firstItem="rJH-RR-lLW" firstAttribute="leading" secondItem="wUd-cg-dll" secondAttribute="trailing" id="IhI-KA-Bb8"/>
+                <constraint firstAttribute="bottom" secondItem="wUd-cg-dll" secondAttribute="bottom" id="Mrr-B9-Uyc"/>
+                <constraint firstItem="O6Y-Qu-wck" firstAttribute="top" secondItem="u8g-7R-VNT" secondAttribute="bottom" id="NDs-g1-l8H"/>
+                <constraint firstItem="wUd-cg-dll" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="R8J-EP-EJ3"/>
+                <constraint firstItem="tSe-qH-nkc" firstAttribute="top" secondItem="rJH-RR-lLW" secondAttribute="top" id="RTT-gd-dI6"/>
+                <constraint firstItem="76Q-rn-6d2" firstAttribute="top" secondItem="O6Y-Qu-wck" secondAttribute="top" id="W15-OT-ezF"/>
+                <constraint firstItem="76Q-rn-6d2" firstAttribute="bottom" secondItem="O6Y-Qu-wck" secondAttribute="bottom" id="W2U-Og-7re"/>
+                <constraint firstAttribute="trailing" secondItem="u8g-7R-VNT" secondAttribute="trailing" id="bzq-Y2-NbA"/>
+                <constraint firstItem="76Q-rn-6d2" firstAttribute="width" secondItem="VJV-NZ-BJB" secondAttribute="width" id="fvh-md-sFm"/>
+                <constraint firstAttribute="bottom" secondItem="O6Y-Qu-wck" secondAttribute="bottom" constant="0.5" id="gg8-Qk-BP7"/>
+                <constraint firstItem="u8g-7R-VNT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="guH-jF-smu"/>
+                <constraint firstItem="wUd-cg-dll" firstAttribute="top" secondItem="u8g-7R-VNT" secondAttribute="bottom" id="iPy-b2-YA8"/>
+                <constraint firstItem="O6Y-Qu-wck" firstAttribute="leading" secondItem="rJH-RR-lLW" secondAttribute="trailing" id="idT-op-PkR"/>
+                <constraint firstItem="76Q-rn-6d2" firstAttribute="leading" secondItem="RJ1-Ll-p7R" secondAttribute="trailing" id="ikn-w6-ZMb"/>
+                <constraint firstItem="tSe-qH-nkc" firstAttribute="leading" secondItem="76Q-rn-6d2" secondAttribute="trailing" id="oSa-cp-K0V"/>
+                <constraint firstItem="RJ1-Ll-p7R" firstAttribute="leading" secondItem="O6Y-Qu-wck" secondAttribute="trailing" id="qX7-j1-wjY"/>
+                <constraint firstItem="RJ1-Ll-p7R" firstAttribute="bottom" secondItem="rJH-RR-lLW" secondAttribute="bottom" id="s2E-fD-QAu"/>
+                <constraint firstAttribute="trailing" secondItem="VJV-NZ-BJB" secondAttribute="trailing" id="uBh-Sy-vhd"/>
+                <constraint firstItem="rJH-RR-lLW" firstAttribute="top" secondItem="u8g-7R-VNT" secondAttribute="bottom" id="v3h-wg-zPS"/>
+                <constraint firstItem="VJV-NZ-BJB" firstAttribute="bottom" secondItem="O6Y-Qu-wck" secondAttribute="bottom" id="v5t-bw-OyD"/>
+                <constraint firstItem="tSe-qH-nkc" firstAttribute="bottom" secondItem="rJH-RR-lLW" secondAttribute="bottom" id="wH5-mu-NFr"/>
+                <constraint firstItem="VJV-NZ-BJB" firstAttribute="top" secondItem="O6Y-Qu-wck" secondAttribute="top" id="xtP-7O-Zoh"/>
+                <constraint firstItem="RJ1-Ll-p7R" firstAttribute="top" secondItem="rJH-RR-lLW" secondAttribute="top" id="yMk-am-iVd"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="catButton" destination="wUd-cg-dll" id="h5R-fk-n9o"/>
+                <outlet property="chatButton" destination="76Q-rn-6d2" id="V1F-QF-PrS"/>
+                <outlet property="fileButton" destination="O6Y-Qu-wck" id="DPv-ez-6dG"/>
+                <outlet property="phoneButton" destination="VJV-NZ-BJB" id="9zt-vr-M9E"/>
+            </connections>
+            <point key="canvasLocation" x="-83" y="32"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="gooddetail_icon_fenlei" width="22" height="22"/>
+    </resources>
+</document>

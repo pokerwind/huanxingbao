@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="DZHomeAdReusableView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CRB-DS-9cZ">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PkE-cg-kMi">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                    <connections>
+                        <action selector="clickAction:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="hbq-2z-5Bp"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="PkE-cg-kMi" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="53j-Xs-WHB"/>
+                <constraint firstItem="CRB-DS-9cZ" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="IGV-Pt-CCb"/>
+                <constraint firstAttribute="bottom" secondItem="PkE-cg-kMi" secondAttribute="bottom" id="IpY-EP-bdg"/>
+                <constraint firstAttribute="trailing" secondItem="CRB-DS-9cZ" secondAttribute="trailing" id="Sar-rM-4Ps"/>
+                <constraint firstAttribute="trailing" secondItem="PkE-cg-kMi" secondAttribute="trailing" id="UYR-as-No3"/>
+                <constraint firstItem="CRB-DS-9cZ" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="YOS-dE-iJY"/>
+                <constraint firstItem="PkE-cg-kMi" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="uXG-Zg-DGC"/>
+                <constraint firstAttribute="bottom" secondItem="CRB-DS-9cZ" secondAttribute="bottom" id="wPS-g4-hBt"/>
+            </constraints>
+            <connections>
+                <outlet property="adImageView" destination="CRB-DS-9cZ" id="tp2-ig-Fug"/>
+            </connections>
+        </collectionReusableView>
+    </objects>
+</document>

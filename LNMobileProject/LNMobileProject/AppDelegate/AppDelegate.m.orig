@@ -1,0 +1,372 @@
+//
+//  AppDelegate.m
+//  LNMobileProject
+//
+//  Created by LiuYanQiMini on 2017/5/16.
+//  Copyright © 2017年 LiuYanQi. All rights reserved.
+//
+
+#import "AppDelegate.h"
+
+#import <JPUSHService.h>
+// iOS10注册APNs所需头文件
+#ifdef NSFoundationVersionNumber_iOS_9_x_Max
+#import <UserNotifications/UserNotifications.h>
+#endif
+
+#import "DZLoginVC.h"
+#import "LNNavigationController.h"
+
+#import "LCNetworkConfig.h"
+#import "DPMobileApplication.h"
+#import <IQKeyboardManager.h>
+
+@interface AppDelegate ()<JPUSHRegisterDelegate,EMClientDelegate,EMChatManagerDelegate>
+
+@end
+
+@implementation AppDelegate
+
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    // 基本网络设置
+    LCNetworkConfig *config = [LCNetworkConfig sharedInstance];
+    config.mainBaseUrl = DEFAULT_HTTP_HOST;
+    LCProcessFilter *filter = [[LCProcessFilter alloc] init];
+    config.processRule = filter;
+
+    //全局UI
+    [self configAppearance];
+    
+    [SVProgressHUD setMinimumDismissTimeInterval:2];
+    [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
+    [IQKeyboardManager sharedManager].enableAutoToolbar = NO;
+    
+    //清空badge
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    //Required
+    //notice: 3.0.0及以后版本注册可以这样写，也可以继续用之前的注册方式
+    JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
+    entity.types = 0|1|2;
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        // 可以添加自定义categories
+        // NSSet<UNNotificationCategory *> *categories for iOS10 or later
+        // NSSet<UIUserNotificationCategory *> *categories for iOS8 and iOS9
+    }
+    [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
+    [JPUSHService setupWithOption:launchOptions appKey:@"af4080171beb392510aa6f63"
+                          channel:@"App Store"
+                 apsForProduction:0
+            advertisingIdentifier:nil];
+    
+    // 注册环信
+    EMOptions *options = [EMOptions optionsWithAppkey:@"1117170918115153#sirendingzhi"];
+    
+    //options.apnsCertName = @"akimoto_publish";
+    //角标清0
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    //    options.apnsCertName = @"istore_dev";
+    EMError *error = [[EMClient sharedClient] initializeSDKWithOptions:options];
+    if (error == nil) {
+        NSLog(@"注册环信服务成功");
+        [[EMClient sharedClient] addDelegate:self delegateQueue:nil];
+        [[EMClient sharedClient].chatManager addDelegate:self delegateQueue:nil];
+    }
+    
+    if ([DPMobileApplication sharedInstance].isLogined) {
+        DZUserModel *user = [DPMobileApplication sharedInstance].loginUser;
+        // 登录环信
+        [[EMClient sharedClient] loginWithUsername:user.emchat_username
+                                          password:user.emchat_password
+                                        completion:^(NSString *aUsername, EMError *aError) {
+                                            if (!aError) {
+                                                NSLog(@"登陆成功");
+                                            } else {
+                                                NSLog(@"登陆失败");
+                                            }
+                                        }];
+    }
+    
+    EMPushOptions *pushOptions = [[EMClient sharedClient] pushOptions];
+    //pushOptions.displayStyle = EMPushDisplayStyleMessageSummary; // 显示消息内容
+    pushOptions.displayStyle = EMPushDisplayStyleSimpleBanner; // 显示“您有一条新消息”
+    error = [[EMClient sharedClient] updatePushOptionsToServer]; // 更新配置到服务器，该方法为同步方法，如果需要，请放到单独线程
+    if(!error) {
+        // 成功
+    }else {
+        // 失败
+    }
+
+    
+    //设置根视图控制器
+    [self setupRootViewController];
+    
+    return YES;
+}
+
+- (void)setupRootViewController {
+    //判断是否已登录
+    if ([DPMobileApplication sharedInstance].isLogined) {
+        self.window.rootViewController = [[MainTabBarController alloc] init];
+        
+        //用户已登录，每次启动更新用户信息
+        [[DPMobileApplication sharedInstance] updateUserInfo];
+        
+        [JPUSHService setAlias:[DPMobileApplication sharedInstance].loginUser.user_id callbackSelector:nil object:nil];
+    }else{
+        LNNavigationController *nvc = [[LNNavigationController alloc] initWithRootViewController:[DZLoginVC new]];
+        self.window.rootViewController = nvc;
+    }
+    
+}
+
+
+- (void)applicationWillResignActive:(UIApplication *)application {
+    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
+    // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+}
+
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [[EMClient sharedClient] applicationDidEnterBackground:application];
+}
+
+
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+<<<<<<< Updated upstream
+    //清空badge
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+=======
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    
+    [[EMClient sharedClient] applicationWillEnterForeground:application];
+>>>>>>> Stashed changes
+}
+
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+}
+
+
+- (void)applicationWillTerminate:(UIApplication *)application {
+    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)configAppearance{
+    NSDictionary * dict = @{
+                            NSForegroundColorAttributeName:NaviBarTitleColor,
+                            NSFontAttributeName:[UIFont systemFontOfSize:16]
+                            };
+    [[UINavigationBar appearance] setTitleTextAttributes:dict];
+    // 设置left right NavItem 颜色
+    [[UINavigationBar appearance] setTintColor:NaviBarItemColor];
+    // 设置 UINavigationBar 背景色
+    [[UINavigationBar appearance] setBarTintColor:ThemeColor];
+    // 去掉黑线 不透明 NavigationBar
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageWithColor:ThemeColor]
+                                      forBarPosition:UIBarPositionAny
+                                          barMetrics:UIBarMetricsDefault];
+    // 自定义返回按钮 图片
+    [[UINavigationBar appearance] setBackIndicatorImage:[UIImage imageNamed:@"icon_back"]];
+    [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[UIImage imageNamed:@"icon_back"]];
+    // 设置 TabBar 不透明
+    [UITabBar appearance].translucent = NO;
+    
+    // 设置 TabBar 颜色为黑色
+    [[UITabBar appearance] setBarTintColor:ThemeColor];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:TextLightColor}
+                                             forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:TextGoldColor}
+                                             forState:UIControlStateSelected];
+}
+
+
+//极光推送
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    
+    /// Required - 注册 DeviceToken
+    [JPUSHService registerDeviceToken:deviceToken];
+    
+    //也要传给环信
+    [[EMClient sharedClient] bindDeviceToken:deviceToken];
+}
+
+
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
+    
+}
+
+#pragma mark - ---- EMChatManagerDelegate ----
+// 受到即时消息
+- (void)messagesDidReceive:(NSArray *)aMessages {
+    
+//    self.hasUnreadMessage = YES;
+//
+//    [SPMobileApplication sharedInstance].hasNewChatMessage = YES;
+//
+//    [[NSNotificationCenter defaultCenter] postNotificationName:NotificationPushMessage object:nil];
+//
+//    if ([SPMobileApplication sharedInstance].isStartByHuanxinNotification) {
+//        [SPMobileApplication sharedInstance].isStartByHuanxinNotification = NO;
+//        return;
+//    }
+//
+//
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReceiveMessage" object:nil];
+//    /*
+//     判断消息来源是否在当前的聊天界面
+//     */
+//    BOOL isCurrentChat = NO;
+//    NSInteger index = self.mainTabBarController.selectedIndex;
+//    UINavigationController *navi = [self.mainTabBarController.viewControllers objectAtIndex:index];
+//    for (UIViewController *vc in navi.viewControllers) {
+//        if ([vc isKindOfClass:[EaseMessageViewController class]]) {
+//            isCurrentChat = YES;
+//            break;
+//        }
+//    }
+//    if (isCurrentChat) {
+//        return;
+//    }
+//#if !TARGET_IPHONE_SIMULATOR
+//    if (!_lastPlaySoundDate) {
+//        _lastPlaySoundDate = [NSDate dateWithTimeIntervalSince1970:0];
+//    }
+//    NSTimeInterval timeInterval = [[NSDate date] timeIntervalSinceDate:_lastPlaySoundDate];
+//    if (timeInterval < 3.0) {
+//        //如果距离上次响铃和震动时间太短, 则跳过响铃
+//        NSLog(@"skip ringing & vibration %@, %@", [NSDate date], _lastPlaySoundDate);
+//        return;
+//    }
+//    //保存最后一次响铃时间
+//    _lastPlaySoundDate = [NSDate date];
+//    // 收到消息时，播放音频
+//    [[EMCDDeviceManager sharedInstance] playNewMessageSound];
+//    // 收到消息时，震动
+//    [[EMCDDeviceManager sharedInstance] playVibration];
+//
+//#endif
+//    // 判断程序处在后台
+//    //    if ([UIApplication sharedApplication].applicationState == UIApplicationStateBackground) {
+//    if (YES) {
+//        // 所有回话的未读消息数
+//        NSArray *conversations = [[EMClient sharedClient].chatManager getAllConversations];
+//        int count = 0;
+//        for (EMConversation *em in conversations) {
+//            count += [em unreadMessagesCount];
+//        }
+//        [UIApplication sharedApplication].applicationIconBadgeNumber = count;
+//        // 创建本地通知并设置通知内容
+//        UILocalNotification *LocalNoti = [[UILocalNotification alloc] init];
+//        LocalNoti.fireDate = [NSDate new];// 通知发出的时间
+//        LocalNoti.repeatInterval = 0;
+//        LocalNoti.soundName = UILocalNotificationDefaultSoundName;// 系统推送声音
+//        EMMessage *lastMessage = [aMessages firstObject];
+//        if (lastMessage.direction == 1) {
+//
+//            NSString *latestMessageTitle = @"";
+//            EMMessageBody *messageBody = lastMessage.body;
+//            switch (messageBody.type) {
+//                case 2:{
+//                    latestMessageTitle = NSLocalizedString(@"message.image1", @"[image]");
+//                } break;
+//                case 1:{
+//                    // 表情映射。
+//                    NSString *didReceiveText = [EaseConvertToCommonEmoticonsHelper
+//                                                convertToSystemEmoticons:((EMTextMessageBody *)messageBody).text];
+//                    latestMessageTitle = didReceiveText;
+//                    if ([lastMessage.ext objectForKey:MESSAGE_ATTR_IS_BIG_EXPRESSION]) {
+//                        latestMessageTitle = @"[动画表情]";
+//                    }
+//                } break;
+//                case 5:{
+//                    latestMessageTitle = NSLocalizedString(@"message.voice1", @"[voice]");
+//                } break;
+//                case 4: {
+//                    latestMessageTitle = NSLocalizedString(@"message.location1", @"[location]");
+//                } break;
+//                case 3: {
+//                    latestMessageTitle = NSLocalizedString(@"message.video1", @"[video]");
+//                } break;
+//                case 6: {
+//                    latestMessageTitle = NSLocalizedString(@"message.file1", @"[file]");
+//                } break;
+//                default: {
+//                } break;
+//            }
+//            NSString *from = lastMessage.from;
+//            NSDictionary *dic = [self getUserDetail:from];
+//
+//            // 创建本地通知并设置通知内容
+//            UILocalNotification *LocalNoti = [[UILocalNotification alloc] init];
+//            LocalNoti.fireDate = [NSDate new];// 通知发出的时间
+//            LocalNoti.repeatInterval = 0;
+//            LocalNoti.soundName = UILocalNotificationDefaultSoundName;// 系统推送声音
+//            if (dic) {
+//                LocalNoti.alertBody = [NSString stringWithFormat:@"%@:%@",dic[@"nickname"],latestMessageTitle];// 通知内容
+//            }else {
+//                LocalNoti.alertBody = @"你有一条新的消息";// 通知内容
+//            }
+//            LocalNoti.hasAction = YES;// 是否显示提示文字
+//
+//            NSDictionary *dict = @{@"type":@"4"};
+//            LocalNoti.userInfo = dict;
+//            [[UIApplication sharedApplication] scheduleLocalNotification:LocalNoti];
+//            LocalNoti = nil;
+//        }
+//
+//    }
+    // 会话列表刷新数据
+    //    [self.convesationVC refreshDataSource];
+    // 显示未读消息标记
+    //    [self showUnReadMessageSign];
+}
+//
+//
+#pragma mark - ---- EMClientDelegate ----
+- (void)userAccountDidLoginFromOtherDevice
+{
+//    if ([SPMobileApplication sharedInstance].isLogined == NO) {
+//        return;
+//    }
+    //    [[SPMobileApplication sharedInstance] logout];
+    //    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    //    delegate.mainTabBarController = [[MainTabBarController alloc] init];
+    //    delegate.window.rootViewController = delegate.mainTabBarController;
+    //    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"当前登录账号在其它设备登录" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    //    [alertView show];
+    //    alertView.tag = 100;
+    //    [[NSNotificationCenter defaultCenter] postNotificationName:KNOTIFICATION_LOGINCHANGE object:@NO];
+}
+
+
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger))completionHandler {
+    LGAlertView *alert = [LGAlertView alertViewWithTitle:@"消息" message:notification.request.content.body style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:@"确定" destructiveButtonTitle:nil];
+    [alert show];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    // Required, iOS 7 Support
+    [JPUSHService handleRemoteNotification:userInfo];
+    completionHandler(UIBackgroundFetchResultNewData);
+    
+    LGAlertView *alert = [LGAlertView alertViewWithTitle:@"消息" message:userInfo[@"aps"][@"alert"] style:LGAlertViewStyleAlert buttonTitles:nil cancelButtonTitle:@"确定" destructiveButtonTitle:nil];
+    [alert show];
+}
+
+#pragma mark - scheme url
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(id)annotation{
+    return YES;
+}
+
+@end

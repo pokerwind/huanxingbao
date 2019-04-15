@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DZOpenShopSelectionView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请根据实际情况选择开店" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFe-BH-eOC">
+                    <rect key="frame" x="108.5" y="13" width="158" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注意：一旦发现开店类型不匹配，平台将做关店处罚" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C3Y-TG-FBk">
+                    <rect key="frame" x="12" y="236" width="305" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CI6-Cm-d1F">
+                    <rect key="frame" x="0.0" y="35" width="375" height="196"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="hFe-BH-eOC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="13" id="0Aj-AE-Fcg"/>
+                <constraint firstAttribute="trailing" secondItem="CI6-Cm-d1F" secondAttribute="trailing" id="1RM-Mg-cV2"/>
+                <constraint firstItem="CI6-Cm-d1F" firstAttribute="top" secondItem="hFe-BH-eOC" secondAttribute="bottom" constant="5" id="7B3-9u-KKb"/>
+                <constraint firstAttribute="bottom" secondItem="C3Y-TG-FBk" secondAttribute="bottom" constant="8" id="Cpw-kr-xk5"/>
+                <constraint firstItem="C3Y-TG-FBk" firstAttribute="top" secondItem="CI6-Cm-d1F" secondAttribute="bottom" constant="5" id="LzE-qF-qOC"/>
+                <constraint firstItem="CI6-Cm-d1F" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="U4g-4L-W6z"/>
+                <constraint firstItem="hFe-BH-eOC" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="bip-1Q-Gri"/>
+                <constraint firstItem="C3Y-TG-FBk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="uwb-Ld-htE"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="rootTableView" destination="CI6-Cm-d1F" id="AHE-lT-Z7f"/>
+            </connections>
+            <point key="canvasLocation" x="157" y="66"/>
+        </view>
+    </objects>
+</document>

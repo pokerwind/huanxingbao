@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DZGoodPreviewVC">
+            <connections>
+                <outlet property="operationButton" destination="R21-oT-act" id="aNb-tF-iTd"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0mt-OH-6DV">
+                    <rect key="frame" x="0.0" y="627" width="375" height="40"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JZ9-NK-1Pw">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.5" id="H02-FF-cBf"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R21-oT-act">
+                            <rect key="frame" x="261" y="10" width="51" height="22"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="下架" image="good_icon_down">
+                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="operationButtonClick" destination="-1" eventType="touchUpInside" id="tgt-bY-gwh"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDg-em-FmQ">
+                            <rect key="frame" x="63" y="10" width="51" height="22"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <size key="titleShadowOffset" width="10" height="8"/>
+                            <state key="normal" title="编辑" image="my_good_icon_edit">
+                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="editButtonClick" destination="-1" eventType="touchUpInside" id="3wW-YZ-QiV"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="R21-oT-act" secondAttribute="trailing" constant="63" id="4ac-pg-czu"/>
+                        <constraint firstItem="nDg-em-FmQ" firstAttribute="top" secondItem="JZ9-NK-1Pw" secondAttribute="bottom" constant="9" id="Aoe-9y-uav"/>
+                        <constraint firstItem="JZ9-NK-1Pw" firstAttribute="leading" secondItem="0mt-OH-6DV" secondAttribute="leading" id="G6a-mN-PxK"/>
+                        <constraint firstItem="JZ9-NK-1Pw" firstAttribute="top" secondItem="0mt-OH-6DV" secondAttribute="top" id="bG2-ap-DxQ"/>
+                        <constraint firstAttribute="height" constant="40" id="heL-v9-JDW"/>
+                        <constraint firstItem="nDg-em-FmQ" firstAttribute="leading" secondItem="0mt-OH-6DV" secondAttribute="leading" constant="63" id="ngc-tE-Nhz"/>
+                        <constraint firstAttribute="trailing" secondItem="JZ9-NK-1Pw" secondAttribute="trailing" id="ouj-2n-hym"/>
+                        <constraint firstItem="nDg-em-FmQ" firstAttribute="centerY" secondItem="R21-oT-act" secondAttribute="centerY" id="unD-A9-8yC"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="0mt-OH-6DV" secondAttribute="bottom" id="hqA-JP-Za2"/>
+                <constraint firstAttribute="trailing" secondItem="0mt-OH-6DV" secondAttribute="trailing" id="jWw-hi-Iib"/>
+                <constraint firstItem="0mt-OH-6DV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wgh-YR-qic"/>
+            </constraints>
+            <point key="canvasLocation" x="-187" y="-21"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="good_icon_down" width="22" height="22"/>
+        <image name="my_good_icon_edit" width="22" height="22"/>
+    </resources>
+</document>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DZSearchVC">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bo6-cJ-bmf">
+                    <rect key="frame" x="0.0" y="65" width="375" height="32"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nav_icon_search" translatesAutoresizingMaskIntoConstraints="NO" id="oDU-22-Rv4">
+                            <rect key="frame" x="23" y="5" width="22" height="22"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="搜索所有相关的商品" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uxz-6o-TFw">
+                            <rect key="frame" x="55" y="8" width="119.5" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.45098039215686275" green="0.45098039215686275" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXX-Tv-588">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="32"/>
+                            <connections>
+                                <action selector="goodsAction:" destination="-1" eventType="touchUpInside" id="OVj-Aq-wLZ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="eXX-Tv-588" secondAttribute="trailing" id="8Lq-jh-SDa"/>
+                        <constraint firstItem="eXX-Tv-588" firstAttribute="leading" secondItem="bo6-cJ-bmf" secondAttribute="leading" id="IlU-US-710"/>
+                        <constraint firstItem="eXX-Tv-588" firstAttribute="top" secondItem="bo6-cJ-bmf" secondAttribute="top" id="Mir-0J-EpY"/>
+                        <constraint firstItem="uxz-6o-TFw" firstAttribute="leading" secondItem="oDU-22-Rv4" secondAttribute="trailing" constant="10" id="RB4-ah-ECA"/>
+                        <constraint firstAttribute="height" constant="32" id="Y7c-MT-d0m"/>
+                        <constraint firstItem="oDU-22-Rv4" firstAttribute="leading" secondItem="bo6-cJ-bmf" secondAttribute="leading" constant="23" id="cEV-UF-U5b"/>
+                        <constraint firstItem="uxz-6o-TFw" firstAttribute="centerY" secondItem="bo6-cJ-bmf" secondAttribute="centerY" id="hah-2c-fbf"/>
+                        <constraint firstAttribute="bottom" secondItem="eXX-Tv-588" secondAttribute="bottom" id="m7d-tj-HPr"/>
+                        <constraint firstItem="oDU-22-Rv4" firstAttribute="centerY" secondItem="bo6-cJ-bmf" secondAttribute="centerY" id="vRF-d8-rQL"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="bo6-cJ-bmf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="65" id="4Da-Ot-aa1"/>
+                <constraint firstItem="bo6-cJ-bmf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="SzU-cw-ROR"/>
+                <constraint firstAttribute="trailing" secondItem="bo6-cJ-bmf" secondAttribute="trailing" id="Thh-Bk-fsT"/>
+            </constraints>
+            <point key="canvasLocation" x="24.5" y="52.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="nav_icon_search" width="22" height="22"/>
+    </resources>
+</document>
